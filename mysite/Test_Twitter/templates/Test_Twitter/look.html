@@ -1,0 +1,22 @@
+<p>LOOK PAGE</p>
+<form method="post">
+    {% csrf_token %}
+    <p><a href="/Test_Twitter/search">SEARCH</a></p>
+    <p><a href="/Test_Twitter">INDEX</a></p>
+    <p>FIRST VALUES INFO</p>
+    {% if content_type == "users" %}
+        {% for value in content %}
+            <p><a href="{{ value.0.url }}">{{ value.0.screen_name }}</a></p>
+            {% for status in value.1 %}
+                <p>{{ status.text }}</p>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    {% if content_type == "tweets" %}
+        {% for value in content %}
+            <p>{{ value.created_at }} - {{ value.author.screen_name }}</p>
+            <p>{{ value.text }}</p>
+        {% endfor %}
+    {% endif %}
+    <output name="error_message" id="error_message">{{error_message}}</output>
+</form>

@@ -1,0 +1,9 @@
+<p>INDEX PAGE</p>
+<form method="post">
+    {% csrf_token %}
+    <p>YOUR ARE {{status}}</p>
+    <p><a href="/Test_Twitter/login">LOGIN</a></p>
+    <p><a href="/Test_Twitter/tweet">SEND TWEET</a></p>
+    <p><a href="/Test_Twitter/search">SEARCH</a></p>
+    <p><a href="/Test_Twitter/admin">ADMIN</a></p>
+</form>
